@@ -11,16 +11,6 @@ function App(){
     let newTxt = currTxt.toUpperCase();
     changeTxt(newTxt);
   }
-  const darkMode = ()=>{
-    if(document.body.style.background !== "black"){
-    document.body.style.background = "black";
-    document.body.style.color = "white";
-    }else{
-      document.body.style.background = "white";
-      document.body.style.color = "black";
-    }
-    
-  }
   return(
       <>
         <Navbar/>
@@ -33,7 +23,7 @@ function App(){
   <h2 className="heading">Text Summary</h2>
   <p>{currTxt.split(" ").length} words and {currTxt.split("").length} letters</p>
 </div>
-<button class="btn btn-secondary mx-3 my-3" onClick={darkMode}>Enable Dark Mode</button>
+<button class="btn btn-secondary mx-3 my-3">Enable Dark Mode</button>
       </>
     );
 }
