@@ -1,19 +1,39 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './App.css'
 import Navbar from './Navbar'
-import Card from './Card'
 
 function App(){
+  const [currTxt,changeTxt] = useState("Enter the Text here...");
+  const change = (e)=>{
+    changeTxt(e.target.value);
+  }
+  const convert = ()=>{
+    let newTxt = currTxt.toUpperCase();
+    changeTxt(newTxt);
+  }
+  const darkMode = ()=>{
+    if(document.body.style.background !== "black"){
+    document.body.style.background = "black";
+    document.body.style.color = "white";
+    }else{
+      document.body.style.background = "white";
+      document.body.style.color = "black";
+    }
+    
+  }
   return(
       <>
         <Navbar/>
-        <Card title="Shirts" subTitle="Gucci Shirt"/>
-        
         <div className="container mb-3">
   <label htmlFor="exampleFormControlTextarea1" className="form-label">Enter text to Convert Into UpperCase</label>
-  <textarea className="form-control" id="exampleFormControlTextarea1" rows="8"placeholder="Enter Text here..."></textarea>
-  <button className="btn btn-primary my-3">Convert</button>
+  <textarea className="form-control" id="exampleFormControlTextarea1" rows="8" value={currTxt}onChange={change}></textarea>
+  <button className="btn btn-primary my-3"onClick={convert}>Convert</button>
 </div>
+<div className="container">
+  <h2 className="heading">Text Summary</h2>
+  <p>{currTxt.split(" ").length} words and {currTxt.split("").length} letters</p>
+</div>
+<button class="btn btn-secondary mx-3 my-3" onClick={darkMode}>Enable Dark Mode</button>
       </>
     );
 }

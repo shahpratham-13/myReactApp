@@ -7,3 +7,6 @@
   --poppin: 'Poppins', sans-serif;
   --nunito: 'Nunito', sans-serif;
 }
+body{
+  transition: all 0.2s linear;
+}
